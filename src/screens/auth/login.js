@@ -5,12 +5,17 @@ import { loginEndpoint } from '../../spotify';
 export default function Login() {
     return (
       <div className="login-page">
-        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png"
+        <img src="https://i.ibb.co/qjD1MRT/logo-powered-Spotify.png"
              alt="logo-spotify"
              className="logo" />
 
         <a href={loginEndpoint}>
-          <div className="login-btn">LOG IN</div>
+          <div className="login-btn"> 
+          <p className="text">Log in using</p>
+          <img src="https://zeevector.com/wp-content/uploads/Spotify-Logo-PNG.png" 
+                alt="Spotify" 
+                className="spotiLogo"/>
+          </div>
         </a>
       </div>
     );
