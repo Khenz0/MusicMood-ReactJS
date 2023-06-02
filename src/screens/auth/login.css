@@ -1,5 +1,4 @@
 .login-page {
-    background-color: #1f1f1f;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -7,6 +6,7 @@
     justify-content: center;
     overflow: hidden;
     flex-direction: column;
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
   }
   
   .logo {
@@ -24,14 +24,15 @@
   
   .login-btn {
     width: 200px;
-    padding: 15px 20px;
+    padding: 0px 20px;
     text-align: center;
-    background-color: #fefefe;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
     border-radius: 50px;
     color: #1f1f1f;
-    font-weight: 620;
+    font-weight: 500;
     display: flex;
     flex-direction: row;
+    margin-top: 40px;
   }
   
   a {

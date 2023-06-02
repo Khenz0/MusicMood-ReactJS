@@ -19,7 +19,7 @@ export default function Library() {
   const navigate = useNavigate();
 
   const playPlaylist = (id) => {
-    navigate('/player', { state: { id: id}});
+    navigate("/player", { state: { id: id } });
   };
 
   return (
@@ -33,7 +33,7 @@ export default function Library() {
             <p className='playlist-title'>{playlist.name}</p>
             <p className='playlist-subtitle'>{playlist.tracks.total} Songs</p>
             <div className='playlist-fade'>
-              <IconContext.Provider value={{ size: "50px", color: "#389f51"}}>
+              <IconContext.Provider value={{ size: "50px", color: "#ffffffd2"}}>
                 <AiFillPlayCircle />
               </IconContext.Provider>
             </div>

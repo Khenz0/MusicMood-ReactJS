@@ -5,7 +5,7 @@ import { loginEndpoint } from '../../spotify';
 export default function Login() {
     return (
       <div className="login-page">
-        <img src="https://i.ibb.co/qjD1MRT/logo-powered-Spotify.png"
+        <img src="https://i.ibb.co/kB245B6/New-Project.png"
              alt="logo-spotify"
              className="logo" />
 

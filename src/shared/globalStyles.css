@@ -5,6 +5,14 @@
     border-radius: 30px;
     background-color: #101621;
     opacity: 1;
-    background-image:  repeating-radial-gradient( circle at center left, transparent 0, #101621 100px ), 
+    background-image:  repeating-radial-gradient( 
+        circle at center left, 
+        transparent 0, 
+        #101621 100px 
+    ), 
     repeating-linear-gradient( #16223655, #162236 );
+}
+
+.flex {
+    display: flex;
 }
