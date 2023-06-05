@@ -17,10 +17,10 @@
 
 .song-title {
   text-align: center;
-  font-size: 58px;
+  font-size: 40px;
   font-weight: bold;
   margin: 0px;
-  color: #c4d0e3;
+  color: #ffffff;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -30,7 +30,7 @@
 }
 
 .song-artist {
-  color: #9aa9c2;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 500;
 }
@@ -52,5 +52,5 @@
   font-size: 20px;
   font-weight: 700;
   margin: 0;
-  color: #c4d0e3;
+  color: #ffffff;
 }

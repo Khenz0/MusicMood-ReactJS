@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     overflow-y: auto;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .playlist-card{
@@ -17,6 +17,7 @@
     border: 1px solid rgba(54, 69, 98, 0.18);
     padding: 1%;
     margin-bottom: 2%;
+    margin-right: 2.8%;
     background: rgb(30, 42, 62);
     background: linear-gradient(
         75deg,

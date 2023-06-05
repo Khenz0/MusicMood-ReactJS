@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Library from '../library'
-import Feed from '../feed'
-import Trending from '../trending'
 import Player from '../player'
 import Favorites from '../favorites'
 import Mood from '../mood'
@@ -13,6 +11,11 @@ import { setClientToken } from '../../spotify'
 
 export default function Home() {
   const [token, setToken] = useState("");
+
+  const handleSignOut = () => {
+    window.localStorage.removeItem("token");
+    window.location.href = "/login"; // Replace with your login page URL
+  };
 
   useEffect(() => {
     const token = window.localStorage.getItem("token");
@@ -29,21 +32,20 @@ export default function Home() {
     }
   }, []);
 
-  return (!token ?
-    <Login /> :
+  return !token ? (
+    <Login />
+  ) : (
     <Router>
       <div className='main-body'>
-        <Sidebar />
+        <Sidebar onSignOut={handleSignOut} />
         <Routes>
             <Route path='/' element={<Library />}/>
             <Route path='/mood' element={<Mood />}/>
-            <Route path='/feed' element={<Feed />}/>
-            <Route path='/trending' element={<Trending />}/>
             <Route path='/player' element={<Player />}/>
             <Route path='/favorites' element={<Favorites />}/>
         </Routes>
       </div>
         
     </Router>
-  )
+  );
 }
