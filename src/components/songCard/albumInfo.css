@@ -12,7 +12,7 @@
     overflow: hidden;
     font-size: 20px;
     font-weight: 700;
-    color: #c3d0e3;
+    color: #ffffff;
   }
   
   .marquee {
@@ -34,7 +34,7 @@
   .album-info {
     font-size: 14px;
     font-weight: 500;
-    color: #9aa9c2;
+    color: #ffffff;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -46,7 +46,7 @@
   .album-release {
     font-size: 12px;
     font-weight: 400;
-    color: #9aa9c2;
+    color: #ffffff;
     margin-top: 10px;
   }
   
