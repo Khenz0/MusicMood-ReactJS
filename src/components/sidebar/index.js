@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import "./sidebar.css";
 import SidebarButton from './sidebarButton';
 import { TbMoodCog } from 'react-icons/tb';
-import { MdFavorite } from 'react-icons/md';
 import { FaPlay } from 'react-icons/fa';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { IoLibrary } from 'react-icons/io5';
@@ -25,7 +24,6 @@ export default function Sidebar({ onSignOut }) {
         <div>
             <SidebarButton title="Mood" to="/mood" icon={<TbMoodCog />} />
             <SidebarButton title="Player" to="/player" icon={<FaPlay />} />
-            <SidebarButton title="Favorites" to="/favorites" icon={<MdFavorite />} />
             <SidebarButton title="Library" to="/" icon={<IoLibrary />} />
         </div>
         <SidebarButton title="Sign Out" onClick={onSignOut} icon={<FaSignOutAlt />} />

@@ -5,7 +5,7 @@ circle {
   }
   
   image.active {
-    animation: rotation 30s infinite linear;
+    animation: rotation 10s infinite linear;
     transform-origin: 50% 50%;
   }
   
