@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import './audioPlayer.css';
 import ProgressCircle from './progressCircle';
 import WaveAnimation from './waveAnimation';
@@ -12,16 +12,13 @@ export default function AudioPlayer({
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackProgress, setTrackProgress] = useState(0);
-  var audioSrc = total[currentIndex]?.track.preview_url;
+  const audioSrc = total[currentIndex]?.track.preview_url;
 
   const audioRef = useRef(new Audio(total[0]?.track.preview_url));
-
-  const intervalRef = useRef();
-
+  const intervalRef = useRef(null);
   const isReady = useRef(false);
 
   const { duration } = audioRef.current;
-
   const currentPercentage = duration ? (trackProgress / duration) * 100 : 0;
 
   const startTimer = () => {
@@ -33,13 +30,15 @@ export default function AudioPlayer({
       } else {
         setTrackProgress(audioRef.current.currentTime);
       }
-    }, [1000]);
+    }, 1000);
   };
 
   useEffect(() => {
     if (audioRef.current.src) {
       if (isPlaying) {
-        audioRef.current.play();
+        audioRef.current.play().catch((error) => {
+          console.error('Playback error:', error);
+        });
         startTimer();
       } else {
         clearInterval(intervalRef.current);
@@ -48,28 +47,33 @@ export default function AudioPlayer({
     } else {
       if (isPlaying) {
         audioRef.current = new Audio(audioSrc);
-        audioRef.current.play();
+        audioRef.current.play().catch((error) => {
+          console.error('Playback error:', error);
+        });
         startTimer();
       } else {
         clearInterval(intervalRef.current);
         audioRef.current.pause();
       }
     }
+    // eslint-disable-next-line
   }, [isPlaying]);
 
   useEffect(() => {
     audioRef.current.pause();
     audioRef.current = new Audio(audioSrc);
-
     setTrackProgress(audioRef.current.currentTime);
 
     if (isReady.current) {
-      audioRef.current.play();
+      audioRef.current.play().catch((error) => {
+        console.error('Playback error:', error);
+      });
       setIsPlaying(true);
       startTimer();
     } else {
       isReady.current = true;
     }
+    // eslint-disable-next-line
   }, [currentIndex]);
 
   useEffect(() => {
@@ -82,21 +86,25 @@ export default function AudioPlayer({
   const handleNext = () => {
     if (currentIndex < total.length - 1) {
       setCurrentIndex(currentIndex + 1);
-    } else setCurrentIndex(0);
+    } else {
+      setCurrentIndex(0);
+    }
   };
 
   const handlePrev = () => {
-    if (currentIndex - 1 < 0) setCurrentIndex(total.length - 1);
-    else setCurrentIndex(currentIndex - 1);
+    if (currentIndex - 1 < 0) {
+      setCurrentIndex(total.length - 1);
+    } else {
+      setCurrentIndex(currentIndex - 1);
+    }
   };
 
   const addZero = (n) => {
     return n > 9 ? "" + n : "0" + n;
   };
-  const artists = [];
-  currentTrack?.album?.artists.forEach((artist) => {
-    artists.push(artist.name);
-  });
+
+  const artists = currentTrack?.album?.artists.map((artist) => artist.name);
+
   return (
     <div className="player-body flex">
       <div className="player-left-body">
@@ -110,7 +118,7 @@ export default function AudioPlayer({
       </div>
       <div className="player-right-body flex">
         <p className="song-title">{currentTrack?.name}</p>
-        <p className="song-artist">{artists.join(" | ")}</p>
+        <p className="song-artist">{artists?.join(" | ")}</p>
         <div className="player-right-bottom flex">
           <div className="song-duration flex">
             <p className="duration">0:{addZero(Math.round(trackProgress))}</p>
