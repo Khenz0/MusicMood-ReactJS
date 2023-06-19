@@ -7,8 +7,8 @@ import random
 
 app = Flask(__name__)
 
-client_id = "0aafb87d351c47df80aeab0306fa4bc2"
-client_secret = "0f17a6b84e2140f8a412cb5dd1175cdf"
+client_id = "blank"
+client_secret = "blank"
 redirect_uri = "http://localhost:3000"
 scope = 'user-library-read user-top-read playlist-modify-public user-follow-read'
 
