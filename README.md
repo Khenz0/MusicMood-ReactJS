@@ -17,3 +17,5 @@ You may also see any lint errors in the console.
 ### `npm start-api`
 
 This command will start the Flask API for the mood-playlist creation.
+
+If you want to use this app, you should go to [https://developer.spotify.com/documentation/web-api](https://developer.spotify.com/documentation/web-api) to get your own clientID and secret clientID and edit the moodpy.py and spotify.js code. Also, don't forget to install the required dependencies and packages for this app.

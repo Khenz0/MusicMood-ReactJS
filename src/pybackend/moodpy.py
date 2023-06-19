@@ -32,14 +32,14 @@ def generate_playlist():
     return "Failed to generate playlist."
 
 
-# Step 1: Authenticating Spotipy
+# Authenticating Spotipy
 def authenticate_spotify(token):
     print('...connecting to Spotify')
     sp = spotipy.Spotify(auth=token)
     return sp
 
 
-# Step 2: Creating a list of your favorite artists
+# Creating a list of your favorite artists
 def aggregate_top_artists(sp):
     print('...getting your top artists')
     top_artists_name = []
@@ -63,7 +63,7 @@ def aggregate_top_artists(sp):
     return top_artists_uri
 
 
-# Step 3: For each of the artists, get a set of tracks for each artist
+# For each of the artists, get a set of tracks for each artist
 def aggregate_top_tracks(sp, top_artists_uri):
     print("...getting top tracks")
     top_tracks_uri = []
@@ -75,7 +75,7 @@ def aggregate_top_tracks(sp, top_artists_uri):
     return top_tracks_uri
 
 
-# Step 4: From top tracks, select tracks that are within a certain mood range
+# From top tracks, select tracks that are within a certain mood range
 def select_tracks(sp, top_tracks_uri, mood):
     print("...selecting tracks")
     selected_tracks_uri = []
@@ -124,7 +124,7 @@ def select_tracks(sp, top_tracks_uri, mood):
     return selected_tracks_uri
 
 
-# Step 5: From these tracks, create a playlist for the user
+# From these tracks, create a playlist for the user
 def create_playlist(sp, selected_tracks_uri, mood):
     print("...creating playlist")
     user_all_data = sp.current_user()
